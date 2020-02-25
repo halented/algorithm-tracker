@@ -39,7 +39,6 @@ class App extends React.Component {
         stud.have = !stud.have
       }
     }
-    console.log(tempState)
     fetch(`https://api.jsonbin.io/b/5e54534d699c8612f6d41b76`, {
       method: 'PUT',
       headers: {
@@ -73,6 +72,29 @@ class App extends React.Component {
     this.setState({students: tempState})
   }
 
+  reset = () => {
+    let tempState = this.state.students.slice()
+    for (let stud of tempState) {
+      stud.have = false
+    }
+    fetch(`https://api.jsonbin.io/b/5e54534d699c8612f6d41b76`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'secret-key': '$2b$10$H9MZieFWGmH.jLCvLpr7HO9uJA..HwJmAQKILpZaCYRzVG2UFNZT6',
+        'versioning': false
+      },
+      body: JSON.stringify(tempState)
+    })
+      .then(res => res.json())
+      .then(json => {
+        json.data.forEach(stu=>{
+          stu.chosen = ''
+        })
+        this.setState({ students: json.data })
+      })
+  }
+
   render() {
     return (
       <div className="App" style={{display: 'flex', flexDirection: 'column'}}>
@@ -94,6 +116,16 @@ class App extends React.Component {
         <ul style={{ listStyleType: 'none' }}>
           {this.populateStudents(true)}
         </ul>
+        <button 
+          style={{
+            width: '33%', 
+            margin: 'auto', 
+            borderRadius: '4em', 
+            color: 'cornflowerblue'}}
+            onClick={this.reset}
+            >
+              Reset
+        </button>
       </div>
     );
   }
