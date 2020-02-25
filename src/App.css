@@ -56,3 +56,14 @@ ol, ul {
   margin: 2%;
   border-radius: 2em;
 }
+
+.highlight {
+  color: rgb(5, 30, 255);
+  background-color: rgb(212, 54, 48);
+  font-size: x-large;
+  font-weight: bolder;
+}
+
+.highlight:hover {
+  background-color: rgb(253, 8, 0);
+}

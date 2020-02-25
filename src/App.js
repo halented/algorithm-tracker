@@ -15,6 +15,9 @@ class App extends React.Component {
       })
       .then(res => res.json())
       .then(json => {
+        json.forEach(stu=>{
+          stu.chosen = ''
+        })
         console.log(json)
         this.setState({ students: json })
       })
@@ -24,7 +27,7 @@ class App extends React.Component {
   populateStudents = (val) => {
     return Object.values(this.state.students).map(student => {
       if (student.have === val) {
-        return <li className='studentLink' onClick={() => this.swapList(student)} key={student.id}>{student.name}</li>
+        return <li className={`studentLink ${student.chosen}`} onClick={() => this.swapList(student)} key={student.id}>{student.name}</li>
       }
     })
   }
@@ -48,15 +51,42 @@ class App extends React.Component {
     })
       .then(res => res.json())
       .then(json => {
+        json.data.forEach(stu=>{
+          stu.chosen = ''
+        })
         this.setState({ students: json.data })
       })
+  }
+
+  picker = () => {
+    let studentsWhoHaventGone = this.state.students.filter(student=> student.have === false)
+    // first, pick a random student
+    const randomNumber = Math.floor((Math.random()*(studentsWhoHaventGone.length)))
+    let student = studentsWhoHaventGone[randomNumber]
+    // second, highlight that student's oval
+    let tempState = this.state.students.slice()
+    tempState.forEach(stud=>{
+      if(stud === student){
+        stud.chosen = 'highlight'
+      }
+    })
+    this.setState({students: tempState})
   }
 
   render() {
     return (
       <div className="App" style={{display: 'flex', flexDirection: 'column'}}>
         <h1>Students in Pool</h1>
-        <button style={{width: '33%', margin: 'auto', borderRadius: '4em', color: 'red'}}>PICK A VICTIM</button>
+        <button 
+          style={{
+            width: '33%', 
+            margin: 'auto', 
+            borderRadius: '4em', 
+            color: 'red'}}
+            onClick={this.picker}
+            >
+            PICK A VICTIM
+        </button>
         <ol>
           {this.populateStudents(false)}
         </ol>
