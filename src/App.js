@@ -1,4 +1,5 @@
 import React from 'react';
+import { services } from './services'
 import './App.css';
 
 class App extends React.Component {
@@ -7,69 +8,78 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://api.jsonbin.io/b/5e54534d699c8612f6d41b76/1",
-      {
-        headers: {
-          'secret-key': '$2b$10$H9MZieFWGmH.jLCvLpr7HO9uJA..HwJmAQKILpZaCYRzVG2UFNZT6'
-        }
-      })
-      .then(res => res.json())
-      .then(json => {
-        json.forEach(stu=>{
-          stu.chosen = ''
+    services.fetchData()
+      .then(data => {
+        data.forEach(student => {
+          student.chosen = ''
         })
-        console.log(json)
-        this.setState({ students: json })
+        this.setState({ students: data })
       })
   }
 
+  updateState = (data) => {
+    console.log(data)
+    // data.forEach(student => {
+    //   student.chosen = ''
+    // })
+    // this.setState({ students: data })
+  }
 
   populateStudents = (val) => {
-    return Object.values(this.state.students).map(student => {
+    return this.state.students.map(student => {
       if (student.have === val) {
-        return <li className={`studentLink ${student.chosen}`} onClick={() => this.swapList(student)} key={student.id}>{student.name}</li>
+        return (
+          <li
+            className={`studentLink ${student.chosen}`}
+            onClick={() => this.swapList(student)}
+            key={student.id}>
+            {student.name}
+          </li>)
       }
     })
   }
 
-  swapList = (student) => {
-    let tempState = Object.assign(this.state.students)
+  swapList = ({ id, have }) => {
+    let tempState = this.state.students.slice()
     for (let stud of tempState) {
-      if (stud.id === student.id) {
-        stud.have = !stud.have
+      if (stud.id === id) {
+        stud.have = !have
       }
     }
-    fetch(`https://api.jsonbin.io/b/5e54534d699c8612f6d41b76`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        'secret-key': '$2b$10$H9MZieFWGmH.jLCvLpr7HO9uJA..HwJmAQKILpZaCYRzVG2UFNZT6',
-        'versioning': false
-      },
-      body: JSON.stringify(tempState)
-    })
-      .then(res => res.json())
-      .then(json => {
-        json.data.forEach(stu=>{
-          stu.chosen = ''
-        })
-        this.setState({ students: json.data })
-      })
+    services.postData(tempState)
+    .then(json=>this.updateState(json))
+
+    // fetch(`https://api.jsonbin.io/b/5e54534d699c8612f6d41b76`, {
+    //   method: 'PUT',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'secret-key': '$2b$10$H9MZieFWGmH.jLCvLpr7HO9uJA..HwJmAQKILpZaCYRzVG2UFNZT6',
+    //     'versioning': false
+    //   },
+    //   body: JSON.stringify(tempState)
+    // })
+    //   .then(res => res.json())
+    //   .then(json => {
+    //     json.data.forEach(stu => {
+    //       stu.chosen = ''
+    //     })
+    //     this.setState({ students: json.data })
+    //   })
   }
 
   picker = () => {
-    let studentsWhoHaventGone = this.state.students.filter(student=> student.have === false)
-    // first, pick a random student
-    const randomNumber = Math.floor((Math.random()*(studentsWhoHaventGone.length)))
+    let studentsWhoHaventGone = this.state.students.filter(student => student.have === false)
+    // first, pick a random student ▼
+    const randomNumber = Math.floor((Math.random() * (studentsWhoHaventGone.length)))
     let student = studentsWhoHaventGone[randomNumber]
-    // second, highlight that student's oval
+    // second, highlight that student's oval ▼
     let tempState = this.state.students.slice()
-    tempState.forEach(stud=>{
-      if(stud === student){
+    tempState.forEach(stud => {
+      if (stud === student) {
         stud.chosen = 'highlight'
       }
     })
-    this.setState({students: tempState})
+    this.setState({ students: tempState })
   }
 
   reset = () => {
@@ -88,7 +98,7 @@ class App extends React.Component {
     })
       .then(res => res.json())
       .then(json => {
-        json.data.forEach(stu=>{
+        json.data.forEach(stu => {
           stu.chosen = ''
         })
         this.setState({ students: json.data })
@@ -97,17 +107,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App" style={{display: 'flex', flexDirection: 'column'}}>
+      <div className="App" style={{ display: 'flex', flexDirection: 'column' }}>
         <h1>Students in Pool</h1>
-        <button 
+        <button
           style={{
-            width: '33%', 
-            margin: 'auto', 
-            borderRadius: '4em', 
-            color: 'red'}}
-            onClick={this.picker}
-            >
-            PICK A VICTIM
+            width: '33%',
+            margin: 'auto',
+            borderRadius: '4em',
+            color: 'red'
+          }}
+          onClick={this.picker}
+        >
+          PICK A VICTIM
         </button>
         <ol>
           {this.populateStudents(false)}
@@ -116,15 +127,16 @@ class App extends React.Component {
         <ul style={{ listStyleType: 'none' }}>
           {this.populateStudents(true)}
         </ul>
-        <button 
+        <button
           style={{
-            width: '33%', 
-            margin: 'auto', 
-            borderRadius: '4em', 
-            color: 'cornflowerblue'}}
-            onClick={this.reset}
-            >
-              Reset
+            width: '33%',
+            margin: 'auto',
+            borderRadius: '4em',
+            color: 'cornflowerblue'
+          }}
+          onClick={this.reset}
+        >
+          Reset
         </button>
       </div>
     );
