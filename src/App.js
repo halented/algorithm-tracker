@@ -18,11 +18,10 @@ class App extends React.Component {
   }
 
   updateState = (data) => {
-    console.log(data)
-    // data.forEach(student => {
-    //   student.chosen = ''
-    // })
-    // this.setState({ students: data })
+    data.forEach(student => {
+      student.chosen = ''
+    })
+    this.setState({ students: data })
   }
 
   populateStudents = (val) => {
@@ -41,30 +40,28 @@ class App extends React.Component {
 
   swapList = ({ id, have }) => {
     let tempState = this.state.students.slice()
-    for (let stud of tempState) {
-      if (stud.id === id) {
-        stud.have = !have
+    for (let student of tempState) {
+      if (student.id === id) {
+        student.have = !have
       }
     }
     services.postData(tempState)
     .then(json=>this.updateState(json))
+  }
 
-    // fetch(`https://api.jsonbin.io/b/5e54534d699c8612f6d41b76`, {
-    //   method: 'PUT',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'secret-key': '$2b$10$H9MZieFWGmH.jLCvLpr7HO9uJA..HwJmAQKILpZaCYRzVG2UFNZT6',
-    //     'versioning': false
-    //   },
-    //   body: JSON.stringify(tempState)
+  reset = () => {
+    let tempState = [...this.state.students]
+    console.log("made a copy: ", tempState)
+    debugger;
+    for (let student of tempState) {
+      student.have = false
+    }
+    // console.log("after iterating: ", tempState)
+    // services.postData(tempState)
+    // .then(json=>{
+    //   console.log(json)
+    //   this.updateState(json)
     // })
-    //   .then(res => res.json())
-    //   .then(json => {
-    //     json.data.forEach(stu => {
-    //       stu.chosen = ''
-    //     })
-    //     this.setState({ students: json.data })
-    //   })
   }
 
   picker = () => {
@@ -80,29 +77,6 @@ class App extends React.Component {
       }
     })
     this.setState({ students: tempState })
-  }
-
-  reset = () => {
-    let tempState = this.state.students.slice()
-    for (let stud of tempState) {
-      stud.have = false
-    }
-    fetch(`https://api.jsonbin.io/b/5e54534d699c8612f6d41b76`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        'secret-key': '$2b$10$H9MZieFWGmH.jLCvLpr7HO9uJA..HwJmAQKILpZaCYRzVG2UFNZT6',
-        'versioning': false
-      },
-      body: JSON.stringify(tempState)
-    })
-      .then(res => res.json())
-      .then(json => {
-        json.data.forEach(stu => {
-          stu.chosen = ''
-        })
-        this.setState({ students: json.data })
-      })
   }
 
   render() {

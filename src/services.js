@@ -1,20 +1,20 @@
-const JSON_URL_ROOT = 'https://api.jsonbin.io/b/5e54534d699c8612f6d41b76'
+const JSON_URL_ROOT = 'http://localhost:3000/students'
 const headers = {
     'Content-Type': 'application/json',
-    'secret-key': '$2b$10$H9MZieFWGmH.jLCvLpr7HO9uJA..HwJmAQKILpZaCYRzVG2UFNZT6',
-    'versioning': false
+    Accept: 'application/json'
   }
 
 const fetchData = () => {
-    return fetch(`${JSON_URL_ROOT}/1`, {
+    return fetch(`${JSON_URL_ROOT}`, {
         headers: headers
     })
     .then(res=>res.json())
 }
 
 const postData = (data) => {
+    console.log('the data inside the services file: ', data)
     return fetch(JSON_URL_ROOT, {
-        method: 'PUT',
+        method: 'POST',
         headers: headers,
         body: JSON.stringify(data)
     })
