@@ -15,25 +15,25 @@
     {
       "id": 3,
       "name": "Clarion Heard",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
       "id": 4,
       "name": "David Perekopskiy",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
       "id": 5,
       "name": "Diana Wendt",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
       "id": 6,
       "name": "Jack Cole",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
@@ -45,7 +45,7 @@
     {
       "id": 8,
       "name": "Jonny Riecke",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
@@ -57,13 +57,13 @@
     {
       "id": 10,
       "name": "Kailana Kahawaii",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
       "id": 11,
       "name": "Lief Friedrichs",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
