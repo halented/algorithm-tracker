@@ -5,16 +5,16 @@ const headers = {
   }
 
 const fetchData = () => {
-    return fetch(`${JSON_URL_ROOT}`, {
+    return fetch(JSON_URL_ROOT, {
         headers: headers
     })
     .then(res=>res.json())
 }
 
 const postData = (data) => {
-    console.log('the data inside the services file: ', data)
-    return fetch(JSON_URL_ROOT, {
-        method: 'POST',
+    // console.log('the data inside the services file: ', data)
+    return fetch(`${JSON_URL_ROOT}/${data.id}`, {
+        method: 'PATCH',
         headers: headers,
         body: JSON.stringify(data)
     })

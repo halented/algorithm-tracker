@@ -1,74 +1,88 @@
-{ "students": [
+{
+  "students": [
     {
-        "id": 1,
-        "name": "Aidan Lincoln",
-        "have": false
+      "id": 1,
+      "name": "Aidan Lincoln",
+      "have": false,
+      "chosen": ""
     },
     {
-        "id": 2,
-        "name": "Chris Wagstaffe",
-        "have": false
+      "id": 2,
+      "name": "Chris Wagstaffe",
+      "have": false,
+      "chosen": ""
     },
     {
-        "id": 3,
-        "name": "Clarion Heard",
-        "have": true
+      "id": 3,
+      "name": "Clarion Heard",
+      "have": true,
+      "chosen": ""
     },
     {
-        "id": 4,
-        "name": "David Perekopskiy",
-        "have": false
+      "id": 4,
+      "name": "David Perekopskiy",
+      "have": true,
+      "chosen": ""
     },
     {
-        "id": 5,
-        "name": "Diana Wendt",
-        "have": true
+      "id": 5,
+      "name": "Diana Wendt",
+      "have": true,
+      "chosen": ""
     },
     {
-        "id": 6,
-        "name": "Jack Cole",
-        "have": true
+      "id": 6,
+      "name": "Jack Cole",
+      "have": true,
+      "chosen": ""
     },
     {
-        "id": 7,
-        "name": "Jazz D Bozner",
-        "have": false
+      "id": 7,
+      "name": "Jazz D Bozner",
+      "have": false,
+      "chosen": ""
     },
     {
-        "id": 8,
-        "name": "Jonny Riecke",
-        "have": true
+      "id": 8,
+      "name": "Jonny Riecke",
+      "have": true,
+      "chosen": ""
     },
     {
-        "id": 9,
-        "name": "Joseph Avila",
-        "have": false
+      "id": 9,
+      "name": "Joseph Avila",
+      "have": false,
+      "chosen": ""
     },
     {
-        "id": 10,
-        "name": "Kailana Kahawaii",
-        "have": true
+      "id": 10,
+      "name": "Kailana Kahawaii",
+      "have": true,
+      "chosen": ""
     },
     {
-        "id": 11,
-        "name": "Lief Friedrichs",
-        "have": true
+      "id": 11,
+      "name": "Lief Friedrichs",
+      "have": true,
+      "chosen": ""
     },
     {
-        "id": 12,
-        "name": "Matt Milton",
-        "have": false
+      "id": 12,
+      "name": "Matt Milton",
+      "have": false,
+      "chosen": ""
     },
     {
-        "id": 13,
-        "name": "Kim Khong",
-        "have": false
+      "id": 13,
+      "name": "Kim Khong",
+      "have": false,
+      "chosen": ""
     },
     {
-        "id": 14,
-        "name": "Zeb Blackwell",
-        "have": true
+      "id": 14,
+      "name": "Zeb Blackwell",
+      "have": false,
+      "chosen": ""
     }
-]
-
+  ]
 }

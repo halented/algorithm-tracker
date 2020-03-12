@@ -8,6 +8,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    this.updateState()
+  }
+
+  updateState = () => {
     services.fetchData()
       .then(data => {
         data.forEach(student => {
@@ -15,13 +19,6 @@ class App extends React.Component {
         })
         this.setState({ students: data })
       })
-  }
-
-  updateState = (data) => {
-    data.forEach(student => {
-      student.chosen = ''
-    })
-    this.setState({ students: data })
   }
 
   populateStudents = (val) => {
@@ -38,31 +35,55 @@ class App extends React.Component {
     })
   }
 
-  swapList = ({ id, have }) => {
-    let tempState = this.state.students.slice()
-    for (let student of tempState) {
-      if (student.id === id) {
-        student.have = !have
-      }
-    }
-    services.postData(tempState)
-    .then(json=>this.updateState(json))
-  }
-
-  reset = () => {
-    let tempState = [...this.state.students]
-    console.log("made a copy: ", tempState)
-    debugger;
-    for (let student of tempState) {
+  swapList = (student,reset=false) => {
+    if(reset){
       student.have = false
     }
-    // console.log("after iterating: ", tempState)
-    // services.postData(tempState)
-    // .then(json=>{
-    //   console.log(json)
-    //   this.updateState(json)
-    // })
+    else {
+      student.have = !student.have
+    }
+    services.postData(student)
+    .then(data=>{
+      let tempState = this.state.students.slice()
+      tempState.forEach(stud=>{
+        if(stud.id === data.id){
+          stud = data
+        }
+      })
+      this.setState({students: tempState})
+    })
   }
+
+  reset = (event, student=Object.assign({}, this.state.students[0])) => {
+    console.log("event at the onset: ", event)
+    if(event.target){
+      event = 1
+      console.log("changed event to 1: ", event)
+      var prom = new Promise((resolve, reject) => {
+        console.log("inside promise")
+        if(this.swapList(student)) {
+          console.log("swapped it")
+          resolve()
+        }
+        else reject()
+      })
+      prom.then(()=>this.reset( event+1, Object.assign({}, this.state.students[event])) )
+    }
+    else if(event<this.state.students.length){
+      var prom = new Promise((resolve, reject) => {
+        if(this.swapList(student)) {
+          console.log("swapped it")
+          resolve()
+        }
+      }).then(()=>this.reset( event+1, Object.assign({}, this.state.students[event])) )
+    }
+    else{
+      console.log("condition to pop out of recursion met, here it is: ", event)
+    }
+  }
+  // idea: grab the first student in the list. perform the operation on the first student
+  // wrap that in a promise. once the promise is resolved, recur this function, sending through the next student. 
+  // we have a finite number of students, so set a condition to stop recurring once we have reached the final student, by name or id or length of students array w/e. probably length. 
 
   picker = () => {
     let studentsWhoHaventGone = this.state.students.filter(student => student.have === false)
