@@ -41,19 +41,31 @@ class App extends React.Component {
     }
     else {
       student.have = !student.have
-    }
-    return services.postData(student)
-    .then(data=>{
-      let tempState = this.state.students.slice()
-      tempState.forEach(stud=>{
-        if(stud.id === data.id){
-          stud = data
+      student.chosen = ''
+      let tempState = [...this.state.students]
+      let repl = tempState.map(x=> {
+        if(x.name === student.name){
+          return student
         }
+        else return x
       })
-      // this.setState({students: tempState}, ()=>{return true})
+      this.setState({students: repl})
+    }
+    services.postData(student)
+    .then(data=>{
+      console.log("student update posted successfully")
     })
   }
-// move this into services
+
+  // let tempState = this.state.students.slice()
+  // tempState.forEach(stud=>{
+  //   if(stud.id === data.id){
+  //     stud = data
+  //   }
+  // })
+  // this.setState({students: tempState}, ()=>{return true})
+
+  // move this into services
   reset = (event, student=Object.assign({}, this.state.students[0])) => {
     console.log("event at the onset: ", event)
     if(event.target){
@@ -79,11 +91,17 @@ class App extends React.Component {
         else reject()
       }).then(()=>this.reset( event+1, Object.assign({}, this.state.students[event])) )
     }
-    else console.log('idfk')
+    else {
+      // wait for everything else to finish and update the dom
+      // let tempState = this.state.students.slice()
+      // tempState.forEach(stud=>{
+      //   stud.have = false
+      // })
+      // this.setState({students: tempState})
+      console.log('why does having something in this else tree break the whole function')
+    }
   }
-  // idea: grab the first student in the list. perform the operation on the first student
-  // wrap that in a promise. once the promise is resolved, recur this function, sending through the next student. 
-  // we have a finite number of students, so set a condition to stop recurring once we have reached the final student, by name or id or length of students array w/e. probably length. 
+
 
   picker = () => {
     let studentsWhoHaventGone = this.state.students.filter(student => student.have === false)
@@ -94,6 +112,9 @@ class App extends React.Component {
     let tempState = this.state.students.slice()
     tempState.forEach(stud => {
       if (stud === student) {
+        if (stud.name === "HAL") {
+          stud.chosen = "mega"
+        }
         stud.chosen = 'highlight'
       }
     })

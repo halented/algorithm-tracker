@@ -15,37 +15,34 @@
     {
       "id": 3,
       "name": "Clarion Heard",
-      "have": false,
-      "chosen": ""
+      "have": false
     },
     {
       "id": 4,
       "name": "David Perekopskiy",
-      "have": false,
+      "have": true,
       "chosen": ""
     },
     {
       "id": 5,
       "name": "Diana Wendt",
+      "have": false
+    },
+    {
+      "id": 81,
+      "name": "HAL",
       "have": false,
       "chosen": ""
     },
     {
       "id": 6,
       "name": "Jack Cole",
-      "have": false,
-      "chosen": ""
-    },
-    {
-      "id": 7,
-      "name": "Jazz D Bozner",
-      "have": false,
-      "chosen": ""
+      "have": false
     },
     {
       "id": 8,
       "name": "Jonny Riecke",
-      "have": false,
+      "have": true,
       "chosen": ""
     },
     {
@@ -57,20 +54,12 @@
     {
       "id": 10,
       "name": "Kailana Kahawaii",
-      "have": false,
-      "chosen": ""
+      "have": false
     },
     {
       "id": 11,
       "name": "Lief Friedrichs",
-      "have": false,
-      "chosen": ""
-    },
-    {
-      "id": 12,
-      "name": "Matt Milton",
-      "have": false,
-      "chosen": ""
+      "have": false
     },
     {
       "id": 13,
@@ -81,8 +70,7 @@
     {
       "id": 14,
       "name": "Zeb Blackwell",
-      "have": false,
-      "chosen": ""
+      "have": false
     }
   ]
 }
