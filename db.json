@@ -54,7 +54,8 @@
     {
       "id": 10,
       "name": "Kailana Kahawaii",
-      "have": false
+      "have": true,
+      "chosen": ""
     },
     {
       "id": 11,
