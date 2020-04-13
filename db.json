@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Aidan Lincoln",
-      "have": false,
+      "have": true,
       "chosen": ""
     },
     {
@@ -54,17 +54,19 @@
     {
       "id": 10,
       "name": "Kailana Kahawaii",
-      "have": false
+      "have": true,
+      "chosen": ""
     },
     {
       "id": 11,
       "name": "Lief Friedrichs",
-      "have": false
+      "have": true,
+      "chosen": ""
     },
     {
       "id": 13,
       "name": "Kim Khong",
-      "have": false,
+      "have": true,
       "chosen": ""
     },
     {
