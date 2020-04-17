@@ -9,7 +9,7 @@
     {
       "id": 2,
       "name": "Chris Wagstaffe",
-      "have": false,
+      "have": true,
       "chosen": ""
     },
     {
@@ -72,7 +72,8 @@
     {
       "id": 14,
       "name": "Zeb Blackwell",
-      "have": false
+      "have": true,
+      "chosen": ""
     }
   ]
 }
