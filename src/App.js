@@ -66,15 +66,14 @@ class App extends React.Component {
   // this.setState({students: tempState}, ()=>{return true})
 
   // move this into services
+  // there is no async await in here
   reset = (event, student=Object.assign({}, this.state.students[0])) => {
     console.log("event at the onset: ", event)
     if(event.target){
       event = 1
       console.log("changed event to 1: ", event)
       var prom = new Promise((resolve, reject) => {
-        console.log("first recursion")
         if(this.swapList(student, true)) {
-          console.log("swapped it")
           resolve()
         }
         else reject()
