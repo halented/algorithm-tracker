@@ -111,9 +111,9 @@ class ClassPage extends Component {
         let tempState = this.state.students.slice()
         tempState.forEach(stud => {
           if (stud === student) {
-            if (stud.name === "HAL") {
-              stud.chosen = "mega"
-            }
+            stud.name === "HAL" ? 
+            stud.chosen = "mega" 
+            : 
             stud.chosen = 'highlight'
           }
         })
