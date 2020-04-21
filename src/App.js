@@ -9,8 +9,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App" style={{ display: 'flex', flexDirection: 'column' }}>
-        <ClassPage />
-        {/* <HooksPage /> */}
+        {/* <ClassPage /> */}
+        <HooksPage />
       </div>
     );
   }

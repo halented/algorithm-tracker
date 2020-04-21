@@ -125,33 +125,23 @@ class ClassPage extends Component {
             <>
                 <h1>Students in Pool</h1>
                 <button
-                style={{
-                    width: '33%',
-                    margin: 'auto',
-                    borderRadius: '4em',
-                    color: 'red'
-                }}
+                id='picker'
                 onClick={this.picker}
                 >
-                PICK A VICTIM
+                  PICK A VICTIM
                 </button>
                 <ol>
-                {this.populateStudents(false)}
+                  {this.populateStudents(false)}
                 </ol>
                 <h1>Students who are safe....for now</h1>
                 <ul style={{ listStyleType: 'none' }}>
-                {this.populateStudents(true)}
+                  {this.populateStudents(true)}
                 </ul>
                 <button
-                style={{
-                    width: '33%',
-                    margin: 'auto',
-                    borderRadius: '4em',
-                    color: 'cornflowerblue'
-                }}
+                id='reset'
                 onClick={this.reset}
                 >
-                Reset
+                  Reset
                 </button>
             </>
         )
