@@ -7,7 +7,6 @@ function HooksPage() {
     useEffect(runSetup, [])
 
     function runSetup(){
-        console.log("hey")
         services.fetchData()
         .then(json=>{
             studentChanger(json)
@@ -33,6 +32,39 @@ function HooksPage() {
         studentChanger(tempState)
     }
 
+    const populateStudents = (val) => {
+        return students.map(student => {
+          if (student.have === val) {
+            return (
+              <li
+                className={`studentLink ${student.chosen}`}
+                onClick={() => swapList(student)}
+                key={student.id}>
+                {student.name}
+              </li>)
+          }
+        })
+    }
+
+    const swapList = (student,reset=false) => {
+        if(reset){
+            student.have = false
+        }
+        else {
+            student.have = !student.have
+            student.chosen = ''
+            let replacement = students.map(x=> {
+                if(x.name === student.name){return student}
+                else return x
+            })
+            studentChanger(replacement)
+        }
+        services.postData(student)
+        .then(data=>{
+            console.log("student update posted successfully")
+        })
+    }
+
     return (
         <>
             <h1>Students in Pool</h1>
@@ -42,6 +74,13 @@ function HooksPage() {
             >
             PICK A VICTIM
             </button>
+            <ol>
+                {populateStudents(false)}
+            </ol>
+            <h1>Students who are safe....for now</h1>
+            <ul style={{ listStyleType: 'none' }}>
+                {populateStudents(true)}
+            </ul>
         </>
 )
 }

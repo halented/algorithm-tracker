@@ -69,10 +69,11 @@ class ClassPage extends Component {
       // there is no async await in here
       reset = (event, student=Object.assign({}, this.state.students[0])) => {
         console.log("event at the onset: ", event)
+        var prom;
         if(event.target){
           event = 1
           console.log("changed event to 1: ", event)
-          var prom = new Promise((resolve, reject) => {
+          prom = new Promise((resolve, reject) => {
             if(this.swapList(student, true)) {
               resolve()
             }
@@ -81,7 +82,7 @@ class ClassPage extends Component {
           prom.then(()=>this.reset( event+1, Object.assign({}, this.state.students[event])) )
         }
         else if(event<=this.state.students.length){
-          var prom = new Promise((resolve, reject) => {
+          prom = new Promise((resolve, reject) => {
             console.log("bulk of recursions")
             if(this.swapList(student, true)) {
               console.log("swapped it")

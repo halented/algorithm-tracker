@@ -38,7 +38,8 @@
     {
       "id": 6,
       "name": "Jack Cole",
-      "have": false
+      "have": true,
+      "chosen": ""
     },
     {
       "id": 8,
