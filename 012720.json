@@ -1,81 +1,85 @@
 {
   "students": [
-    {
-      "id": 1,
-      "name": "Aidan Lincoln",
-      "have": true,
-      "chosen": ""
-    },
-    {
-      "id": 2,
-      "name": "Chris Wagstaffe",
-      "have": true,
-      "chosen": ""
-    },
-    {
-      "id": 3,
-      "name": "Clarion Heard",
-      "have": false
-    },
-    {
-      "id": 4,
-      "name": "David Perekopskiy",
-      "have": true,
-      "chosen": ""
-    },
-    {
-      "id": 5,
-      "name": "Diana Wendt",
-      "have": true,
-      "chosen": ""
-    },
-    {
-      "id": 81,
-      "name": "HAL",
-      "have": true,
-      "chosen": ""
-    },
-    {
-      "id": 6,
-      "name": "Jack Cole",
-      "have": true,
-      "chosen": ""
-    },
-    {
-      "id": 8,
-      "name": "Jonny Riecke",
-      "have": true,
-      "chosen": ""
-    },
-    {
-      "id": 9,
-      "name": "Joseph Avila",
-      "have": false,
-      "chosen": ""
-    },
-    {
-      "id": 10,
-      "name": "Kailana Kahawaii",
-      "have": true,
-      "chosen": ""
-    },
-    {
-      "id": 11,
-      "name": "Lief Friedrichs",
-      "have": true,
-      "chosen": ""
-    },
-    {
-      "id": 13,
-      "name": "Kim Khong",
-      "have": true,
-      "chosen": ""
-    },
-    {
-      "id": 14,
-      "name": "Zeb Blackwell",
-      "have": true,
-      "chosen": ""
-    }
+    {"id": 1, 
+      "studentials": [
+      {
+        "id": 1,
+        "name": "Aidan Lincoln",
+        "have": false,
+        "chosen": ""
+      },
+      {
+        "id": 2,
+        "name": "Chris Wagstaffe",
+        "have": false,
+        "chosen": ""
+      },
+      {
+        "id": 3,
+        "name": "Clarion Heard",
+        "have": false
+      },
+      {
+        "id": 4,
+        "name": "David Perekopskiy",
+        "have": true,
+        "chosen": ""
+      },
+      {
+        "id": 5,
+        "name": "Diana Wendt",
+        "have": false,
+        "chosen": ""
+      },
+      {
+        "id": 81,
+        "name": "HAL",
+        "have": true,
+        "chosen": ""
+      },
+      {
+        "id": 6,
+        "name": "Jack Cole",
+        "have": false,
+        "chosen": ""
+      },
+      {
+        "id": 8,
+        "name": "Jonny Riecke",
+        "have": false,
+        "chosen": ""
+      },
+      {
+        "id": 9,
+        "name": "Joseph Avila",
+        "have": true,
+        "chosen": ""
+      },
+      {
+        "id": 10,
+        "name": "Kailana Kahawaii",
+        "have": true,
+        "chosen": ""
+      },
+      {
+        "id": 11,
+        "name": "Lief Friedrichs",
+        "have": false,
+        "chosen": ""
+      },
+      {
+        "id": 13,
+        "name": "Kim Khong",
+        "have": false,
+        "chosen": ""
+      },
+      {
+        "id": 14,
+        "name": "Zeb Blackwell",
+        "have": false,
+        "chosen": ""
+      }
+    ]
+  }
   ]
 }

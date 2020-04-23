@@ -100,3 +100,7 @@ ol, ul {
   border-radius: 4em;
   color: red;
 }
+
+#completed {
+  list-style-type: none;
+}

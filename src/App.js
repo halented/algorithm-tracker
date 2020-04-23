@@ -1,5 +1,5 @@
 import React from 'react';
-import ClassPage from './components/ClassPage'
+// import ClassPage from './components/ClassPage'
 import './App.css';
 import HooksPage from './components/HooksPage';
 

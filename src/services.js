@@ -1,4 +1,4 @@
-const JSON_URL_ROOT = 'http://localhost:3000/students'
+const JSON_URL_ROOT = 'http://localhost:3000/students/1'
 const headers = {
     'Content-Type': 'application/json',
     Accept: 'application/json'
@@ -19,7 +19,10 @@ const postData = (data) => {
     })
     .then(res=>res.json())
 }
+
 export const services = { 
     fetchData,
     postData
 }
+
+// currently the data is all messed up because of trying to work around json-server's particularities
