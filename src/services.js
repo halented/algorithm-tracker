@@ -12,7 +12,7 @@ const fetchData = () => {
 }
 
 const postData = (data) => {
-    return fetch(`${JSON_URL_ROOT}/${data.id}`, {
+    return fetch(`${JSON_URL_ROOT}/studentials/${data.id}`, {
         method: 'PATCH',
         headers: headers,
         body: JSON.stringify(data)

@@ -5,7 +5,7 @@
       {
         "id": 1,
         "name": "Aidan Lincoln",
-        "have": false,
+        "have": true,
         "chosen": ""
       },
       {
@@ -34,36 +34,30 @@
       {
         "id": 81,
         "name": "HAL",
-        "have": true,
+        "have": false,
         "chosen": ""
       },
       {
         "id": 6,
         "name": "Jack Cole",
-        "have": false,
+        "have": true,
         "chosen": ""
       },
       {
         "id": 8,
         "name": "Jonny Riecke",
-        "have": false,
+        "have": true,
         "chosen": ""
       },
       {
         "id": 9,
         "name": "Joseph Avila",
-        "have": true,
+        "have": false,
         "chosen": ""
       },
       {
         "id": 10,
         "name": "Kailana Kahawaii",
-        "have": true,
-        "chosen": ""
-      },
-      {
-        "id": 11,
-        "name": "Lief Friedrichs",
         "have": false,
         "chosen": ""
       },
