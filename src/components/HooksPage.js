@@ -9,7 +9,7 @@ function HooksPage() {
     function runSetup(){
         services.fetchData()
         .then(json=>{
-            studentChanger(json.studentials)
+            studentChanger(json)
         })
     }
 
@@ -47,27 +47,28 @@ function HooksPage() {
     }
 
     const swapList = (student,reset=false) => {
-        console.log("does it get here")
+        let replacement;
         if(reset){
             student.have = false
         }
         else {
             student.have = !student.have
             student.chosen = ''
-            let replacement = students.map(x=> {
+            replacement = students.map(x=> {
                 if(x.name === student.name){return student}
                 else return x
             })
+            console.log(replacement)
             studentChanger(replacement)
         }
         return services.postData(student)
         .then(data=>{
-            console.log("student update posted successfully")
+            console.log("student update posted successfully", data)
         })
     }
 
     const reset = () => {
-      // despair
+      console.log("despair")
     }
 
     return (

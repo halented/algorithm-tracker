@@ -1,4 +1,4 @@
-const JSON_URL_ROOT = 'http://localhost:3000/students/1'
+const JSON_URL_ROOT = 'http://localhost:3000/students'
 const headers = {
     'Content-Type': 'application/json',
     Accept: 'application/json'
@@ -12,7 +12,7 @@ const fetchData = () => {
 }
 
 const postData = (data) => {
-    return fetch(`${JSON_URL_ROOT}/studentials/${data.id}`, {
+    return fetch(`${JSON_URL_ROOT}/${data.id}`, {
         method: 'PATCH',
         headers: headers,
         body: JSON.stringify(data)
