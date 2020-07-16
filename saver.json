@@ -70,6 +70,18 @@
         "name": "Zeb Blackwell",
         "have": false,
         "chosen": ""
+      },
+      {
+        "id": 5,
+        "name": "Erin Reames",
+        "have": false,
+        "chosen": ""
+      },
+      {
+        "id": 6,
+        "name": "Gabriel de Sousa",
+        "have": false,
+        "chosen": ""
       }
     ]
 }

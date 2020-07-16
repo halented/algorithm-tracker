@@ -1,4 +1,4 @@
-const JSON_URL_ROOT = 'http://localhost:3000/students'
+const JSON_URL_ROOT = 'http://localhost:6001/students'
 const headers = {
     'Content-Type': 'application/json',
     Accept: 'application/json'

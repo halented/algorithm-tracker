@@ -1,0 +1,124 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Aidan Muller-Cohn",
+      "have": true,
+      "chosen": ""
+    },
+    {
+      "id": 14,
+      "name": "Thea Harvey-Brown",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 2,
+      "name": "Andy Del Valle",
+      "have": true,
+      "chosen": ""
+    },
+    {
+      "id": 3,
+      "name": "Colton Kaiser",
+      "have": true,
+      "chosen": ""
+    },
+    {
+      "id": 4,
+      "name": "David Knudson",
+      "have": true,
+      "chosen": ""
+    },
+    {
+      "id": 15,
+      "name": "Don Mallory",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 5,
+      "name": "Gabriel de Sousa",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 16,
+      "name": "Jeff Simon",
+      "have": true,
+      "chosen": ""
+    },
+    {
+      "id": 17,
+      "name": "Jenni Paquette",
+      "have": true,
+      "chosen": ""
+    },
+    {
+      "id": 7,
+      "name": "John Rusch",
+      "have": true,
+      "chosen": ""
+    },
+    {
+      "id": 8,
+      "name": "Joshua Mclean",
+      "have": true,
+      "chosen": ""
+    },
+    {
+      "id": 9,
+      "name": "Justin Langlinais",
+      "have": true,
+      "chosen": ""
+    },
+    {
+      "id": 18,
+      "name": "Dream/Khanittha Krajangjaem",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 10,
+      "name": "Klarissa Smith",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 19,
+      "name": "Maggie Cooper",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 11,
+      "name": "Mathew Wheatley",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 12,
+      "name": "Matthew Sedlacek",
+      "have": true,
+      "chosen": ""
+    },
+    {
+      "id": 20,
+      "name": "Sean Dever",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 13,
+      "name": "Steven Parsons",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 6,
+      "name": "Trevor Low",
+      "have": false,
+      "chosen": ""
+    }
+  ]
+}

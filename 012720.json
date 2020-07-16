@@ -15,12 +15,13 @@
     {
       "id": 3,
       "name": "Clarion Heard",
-      "have": true
+      "have": false,
+      "chosen": ""
     },
     {
       "id": 4,
       "name": "David Perekopskiy",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
@@ -32,7 +33,7 @@
     {
       "id": 81,
       "name": "HAL",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
@@ -50,31 +51,25 @@
     {
       "id": 9,
       "name": "Joseph Avila",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
       "id": 10,
       "name": "Kailana Kahawaii",
-      "have": true,
-      "chosen": ""
-    },
-    {
-      "id": 11,
-      "name": "Lief Friedrichs",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
       "id": 13,
       "name": "Kim Khong",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
       "id": 14,
       "name": "Zeb Blackwell",
-      "have": true,
+      "have": false,
       "chosen": ""
     }
   ]

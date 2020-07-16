@@ -4,6 +4,9 @@ import { services } from '../services'
 function HooksPage() {
     const [students, studentChanger] = useState([])
 
+    const [aGroup, aChanger] = useState(null)
+    const [bGroup, bChanger] = useState(null)
+
     useEffect(runSetup, [])
 
     function runSetup(){
@@ -13,12 +16,15 @@ function HooksPage() {
         })
     }
 
-    function picker() {
+    function picker(){
         let studentsWhoHaventGone = students.filter(student => student.have === false)
-        // first, pick a random student ▼
         const randomNumber = Math.floor((Math.random() * (studentsWhoHaventGone.length)))
-        let victim = studentsWhoHaventGone[randomNumber]
-        console.log(victim)
+        return studentsWhoHaventGone[randomNumber]
+    }
+
+    function highlighter() {
+        // first, pick a random student ▼
+        let victim = picker()
         // second, highlight that student's oval ▼
         let tempState = [...students]
         tempState.forEach(student => {
@@ -30,6 +36,38 @@ function HooksPage() {
           }
         })
         studentChanger(tempState)
+    }
+
+    function twoGroupGenerator(){
+        // somewhere in here we need to account for the edge case of only one student being left..
+        // first, pick two random students ▼
+        let a = picker()
+        let b = picker()
+        while(a === b){
+            b = picker()
+        }
+        // then, split the remaining students intwo two groups (ignoring the two who were selected) ▼
+        let one = [a]
+        let two = [b]
+        let tempStuds = [...students]
+        let leng = students.length
+        for(let i=0; i<leng; i++){
+            const randomIndex = Math.floor(Math.random()*tempStuds.length)
+            const student = tempStuds[randomIndex]
+            tempStuds.splice(randomIndex, 1)
+
+            // if the random student is not one of the two selected ones
+            if (student.id != a.id && student.id != b.id){
+                if(i%2!=0){
+                    one.push(student)
+                }
+                else{
+                    two.push(student)
+                }
+            }
+        }
+        aChanger(one)
+        bChanger(two)
     }
 
     const populateStudents = (val) => {
@@ -73,23 +111,54 @@ function HooksPage() {
 
     return (
         <>
-            <h1>Students in Pool</h1>
-            <button
-            id='picker'
-            onClick={picker}
-            >
-            PICK A VICTIM
-            </button>
-            <ol>
-                {populateStudents(false)}
-            </ol>
-            <h1>Students who are safe....for now</h1>
-            <ul id='completed'>
-                {populateStudents(true)}
-            </ul>
-            <button onClick={reset} id='reset'>
-                reset
-            </button>
+            {aGroup ? 
+            <div id='groupHolder'>
+                <div>
+                    <h1>Group 1</h1>
+                    <ul style={{listStyleType: "none"}}>
+                        {aGroup.map(x=><li>{x.name}</li>)}
+                    </ul>
+                </div>
+                <div>
+                    <h1>Group 2</h1>
+                    <ul style={{listStyleType: "none"}}>
+                        {bGroup.map(x=><li>{x.name}</li>)}
+                    </ul>
+                </div>
+            </div>
+            :
+            <>
+                <h1>Students in Pool</h1>
+                <p>
+                    <span>
+                        <button
+                        className='picker'
+                        onClick={highlighter}
+                        >
+                        PICK A VICTIM
+                        </button>
+                    </span>
+                    <span>
+                        <button
+                        className='picker'
+                        onClick={twoGroupGenerator}
+                        >
+                        Two Group Generator
+                        </button>
+                    </span>
+                </p>
+                <ol>
+                    {populateStudents(false)}
+                </ol>
+                <h1>Students who are safe....for now</h1>
+                <ul id='completed'>
+                    {populateStudents(true)}
+                </ul>
+                <button onClick={reset} id='reset'>
+                    reset
+                </button>
+            </>
+            } 
         </>
     )
 }
