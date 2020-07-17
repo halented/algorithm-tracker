@@ -109,6 +109,10 @@ function HooksPage() {
         .then(rt=>{
             swapList(st2)
         })
+        .then(rt=>{
+            aChanger(null)
+            bChanger(null)
+        })
     }
 
     const reset = () => {
