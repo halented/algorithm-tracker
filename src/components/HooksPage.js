@@ -54,7 +54,7 @@ function HooksPage() {
         for(let i=0; i<students.length; i++){
             // alternate shuffling idea: go through student array in order, and randomly decide which group they go to (til both have half)
             // ignoring the two selected students
-            if (students[i].id != a.id && students[i].id != b.id){
+            if (students[i].id !== a.id && students[i].id !== b.id){
                 if(Math.floor(Math.random()*2) === 0 && one.length<half){
                     one.push(students[i])
                 }
@@ -123,19 +123,20 @@ function HooksPage() {
         <>
             {aGroup ? 
             <>
+                <button style={{width: '30%', alignSelf: 'center', marginTop: '2%'}} onClick={twoGroupGenerator}>Reshuffle</button>
                 <div id='groupHolder'>
                     <div>
                         <h1>Group 1</h1>
                         <p style={{color: 'blue', fontWeight: 'bold'}}>{aGroup[0].name}</p>
                         <ul style={{listStyleType: "none", padding: '0%', width: '100%'}}>
-                            {aGroup.map(x=>x != aGroup[0]?<li>{x.name}</li>: null)}
+                            {aGroup.map(x=>x !== aGroup[0]?<li>{x.name}</li>: null)}
                         </ul>
                     </div>
                     <div>
                         <h1>Group 2</h1>
                         <p style={{color: 'blue', fontWeight: 'bold'}}>{bGroup[0].name}</p>
                         <ul style={{listStyleType: "none", padding: '0%', width: '100%'}}>
-                            {bGroup.map(x=>x != bGroup[0]?<li>{x.name}</li>: null)}
+                            {bGroup.map(x=>x !== bGroup[0]?<li>{x.name}</li>: null)}
                         </ul>
                     </div>
                 </div>
