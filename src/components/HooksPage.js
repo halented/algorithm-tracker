@@ -49,20 +49,20 @@ function HooksPage() {
         // then, split the remaining students intwo two groups (ignoring the two who were selected) ▼
         let one = [a]
         let two = [b]
-        let tempStuds = [...students]
-        let leng = students.length
-        for(let i=0; i<leng; i++){
-            const randomIndex = Math.floor(Math.random()*tempStuds.length)
-            const student = tempStuds[randomIndex]
-            tempStuds.splice(randomIndex, 1)
+        let half = Math.floor(students.length/2)
 
-            // if the random student is not one of the two selected ones
-            if (student.id != a.id && student.id != b.id){
-                if(i%2!=0){
-                    one.push(student)
+        for(let i=0; i<students.length; i++){
+            // alternate shuffling idea: go through student array in order, and randomly decide which group they go to (til both have half)
+            // ignoring the two selected students
+            if (students[i].id != a.id && students[i].id != b.id){
+                if(Math.floor(Math.random()*2) === 0 && one.length<half){
+                    one.push(students[i])
                 }
-                else{
-                    two.push(student)
+                else if (two.length<half) {
+                    two.push(students[i])
+                }
+                else {
+                    one.push(students[i])
                 }
             }
         }
@@ -96,12 +96,18 @@ function HooksPage() {
                 if(x.name === student.name){return student}
                 else return x
             })
-            console.log(replacement)
             studentChanger(replacement)
         }
         return services.postData(student)
         .then(data=>{
             console.log("student update posted successfully", data)
+        })
+    }
+
+    const doubleSwap = (st1,st2) => {
+        swapList(st1)
+        .then(rt=>{
+            swapList(st2)
         })
     }
 
@@ -112,20 +118,25 @@ function HooksPage() {
     return (
         <>
             {aGroup ? 
-            <div id='groupHolder'>
-                <div>
-                    <h1>Group 1</h1>
-                    <ul style={{listStyleType: "none"}}>
-                        {aGroup.map(x=><li>{x.name}</li>)}
-                    </ul>
+            <>
+                <div id='groupHolder'>
+                    <div>
+                        <h1>Group 1</h1>
+                        <p style={{color: 'blue', fontWeight: 'bold'}}>{aGroup[0].name}</p>
+                        <ul style={{listStyleType: "none", padding: '0%', width: '100%'}}>
+                            {aGroup.map(x=>x != aGroup[0]?<li>{x.name}</li>: null)}
+                        </ul>
+                    </div>
+                    <div>
+                        <h1>Group 2</h1>
+                        <p style={{color: 'blue', fontWeight: 'bold'}}>{bGroup[0].name}</p>
+                        <ul style={{listStyleType: "none", padding: '0%', width: '100%'}}>
+                            {bGroup.map(x=>x != bGroup[0]?<li>{x.name}</li>: null)}
+                        </ul>
+                    </div>
                 </div>
-                <div>
-                    <h1>Group 2</h1>
-                    <ul style={{listStyleType: "none"}}>
-                        {bGroup.map(x=><li>{x.name}</li>)}
-                    </ul>
-                </div>
-            </div>
+                <button onClick={()=>doubleSwap(aGroup[0], bGroup[0])} style={{width: '38%', alignSelf: 'center'}}>All Done, Thanks</button>
+            </>
             :
             <>
                 <h1>Students in Pool</h1>
