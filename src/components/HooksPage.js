@@ -39,7 +39,7 @@ function HooksPage() {
     }
 
     function twoGroupGenerator(){
-        // somewhere in here we need to account for the edge case of only one student being left..
+        // somewhere in here we need to account for the edge case of only one student being left. once the reset function works, just check for the length of students who haven't gone, and if it's 1 (maybe put that logic in the picker), pick that one student and then do the reset function before continuing
         // first, pick two random students ▼
         let a = picker()
         let b = picker()
@@ -84,23 +84,17 @@ function HooksPage() {
         })
     }
 
-    const swapList = (student,reset=false) => {
+    const swapList = (student) => {
         let replacement;
-        if(reset){
-            student.have = false
-        }
-        else {
-            student.have = !student.have
-            student.chosen = ''
-            replacement = students.map(x=> {
-                if(x.name === student.name){return student}
-                else return x
-            })
-            studentChanger(replacement)
-        }
+        student.have = !student.have
+        student.chosen = ''
+        replacement = students.map(x=> {
+            if(x.name === student.name){return student}
+            else return x
+        })
         return services.postData(student)
         .then(data=>{
-            console.log("student update posted successfully", data)
+            studentChanger(replacement)
         })
     }
 
@@ -116,7 +110,16 @@ function HooksPage() {
     }
 
     const reset = () => {
-      console.log("despair")
+      let promArray = []
+      let alteredStudents = students.map(x=>{
+          x.have = false
+          return x
+      })
+      alteredStudents.forEach(x=>promArray.push(services.promiseMakerForReset(x)))
+      Promise.all(promArray)
+      .then(vals=>{
+          studentChanger(alteredStudents)
+        })
     }
 
     return (
@@ -182,31 +185,3 @@ function HooksPage() {
 export default HooksPage
 
 
-
-// below is some non-working code using promises to try to get the json-server database to let me make a bunch of requests in a row to reset all students. currently, it will work most of the time, but occasionally run too fast and break everything. will refactor eventua
-// console.log("event at the onset: ", event)
-//         var prom;
-//         if(event.target){
-//           event = 1
-//           console.log("changed event to 1: ", event)
-//           prom = new Promise((resolve, reject) => {
-//             if(swapList(student, true)) {
-//               resolve()
-//             }
-//             else reject()
-//           }).then(()=>reset( event+1, Object.assign({}, students[event])))
-//         }
-//         else if(event<=students.length){
-//           prom = new Promise((resolve, reject) => {
-//             console.log("bulk of recursions")
-//             if(swapList(student, true)) {
-//               console.log("swapped it")
-//               resolve()
-//             }
-//             else reject()
-//           }).then(()=>reset( event+1, Object.assign({}, students[event])) )
-//         }
-//         else {
-//           // wait for everything else to finish and update the dom
-//           console.log('recursions should be all done at this point. time to update the state')
-//         }

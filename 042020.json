@@ -9,7 +9,7 @@
     {
       "id": 14,
       "name": "Thea Harvey-Brown",
-      "have": false,
+      "have": true,
       "chosen": ""
     },
     {
@@ -39,7 +39,7 @@
     {
       "id": 5,
       "name": "Gabriel de Sousa",
-      "have": false,
+      "have": true,
       "chosen": ""
     },
     {
@@ -75,19 +75,19 @@
     {
       "id": 18,
       "name": "Dream/Khanittha Krajangjaem",
-      "have": false,
+      "have": true,
       "chosen": ""
     },
     {
       "id": 10,
       "name": "Klarissa Smith",
-      "have": false,
+      "have": true,
       "chosen": ""
     },
     {
       "id": 19,
       "name": "Maggie Cooper",
-      "have": false,
+      "have": true,
       "chosen": ""
     },
     {
@@ -111,7 +111,7 @@
     {
       "id": 13,
       "name": "Steven Parsons",
-      "have": false,
+      "have": true,
       "chosen": ""
     },
     {

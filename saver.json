@@ -1,87 +1,124 @@
 {
   "students": [
-      {
-        "id": 1,
-        "name": "Aidan Lincoln",
-        "have": false,
-        "chosen": ""
-      },
-      {
-        "id": 2,
-        "name": "Chris Wagstaffe",
-        "have": false,
-        "chosen": ""
-      },
-      {
-        "id": 3,
-        "name": "Clarion Heard",
-        "have": true
-      },
-      {
-        "id": 4,
-        "name": "David Perekopskiy",
-        "have": true,
-        "chosen": ""
-      },
-      {
-        "id": 5,
-        "name": "Diana Wendt",
-        "have": false,
-        "chosen": ""
-      },
-      {
-        "id": 81,
-        "name": "HAL",
-        "have": true,
-        "chosen": ""
-      },
-      {
-        "id": 6,
-        "name": "Jack Cole",
-        "have": false,
-        "chosen": ""
-      },
-      {
-        "id": 8,
-        "name": "Jonny Riecke",
-        "have": false,
-        "chosen": ""
-      },
-      {
-        "id": 9,
-        "name": "Joseph Avila",
-        "have": true,
-        "chosen": ""
-      },
-      {
-        "id": 10,
-        "name": "Kailana Kahawaii",
-        "have": true,
-        "chosen": ""
-      },
-      {
-        "id": 13,
-        "name": "Kim Khong",
-        "have": true,
-        "chosen": ""
-      },
-      {
-        "id": 14,
-        "name": "Zeb Blackwell",
-        "have": false,
-        "chosen": ""
-      },
-      {
-        "id": 5,
-        "name": "Erin Reames",
-        "have": false,
-        "chosen": ""
-      },
-      {
-        "id": 6,
-        "name": "Gabriel de Sousa",
-        "have": false,
-        "chosen": ""
-      }
-    ]
+    {
+      "id": 1,
+      "name": "Aidan Muller-Cohn",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 14,
+      "name": "Thea Harvey-Brown",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 2,
+      "name": "Andy Del Valle",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 3,
+      "name": "Colton Kaiser",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 4,
+      "name": "David Knudson",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 15,
+      "name": "Don Mallory",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 5,
+      "name": "Gabriel de Sousa",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 16,
+      "name": "Jeff Simon",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 17,
+      "name": "Jenni Paquette",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 7,
+      "name": "John Rusch",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 8,
+      "name": "Joshua Mclean",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 9,
+      "name": "Justin Langlinais",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 18,
+      "name": "Dream/Khanittha Krajangjaem",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 10,
+      "name": "Klarissa Smith",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 19,
+      "name": "Maggie Cooper",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 11,
+      "name": "Mathew Wheatley",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 12,
+      "name": "Matthew Sedlacek",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 20,
+      "name": "Sean Dever",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 13,
+      "name": "Steven Parsons",
+      "have": false,
+      "chosen": ""
+    },
+    {
+      "id": 6,
+      "name": "Trevor Low",
+      "have": false,
+      "chosen": ""
+    }
+  ]
 }

@@ -20,9 +20,18 @@ const postData = (data) => {
     .then(res=>res.json())
 }
 
+const promiseMakerForReset = (data) => {
+    return fetch(`${JSON_URL_ROOT}/${data.id}`, {
+        method: 'PATCH',
+        headers: headers,
+        body: JSON.stringify(data)
+    })
+}
+
 export const services = { 
     fetchData,
-    postData
+    postData,
+    promiseMakerForReset
 }
 
 // currently the data is all messed up because of trying to work around json-server's particularities
