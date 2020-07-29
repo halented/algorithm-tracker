@@ -81,43 +81,43 @@
     {
       "id": 10,
       "name": "Klarissa Smith",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
       "id": 19,
       "name": "Maggie Cooper",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
       "id": 11,
       "name": "Mathew Wheatley",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
       "id": 12,
       "name": "Matthew Sedlacek",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
       "id": 20,
       "name": "Sean Dever",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
       "id": 13,
       "name": "Steven Parsons",
-      "have": true,
+      "have": false,
       "chosen": ""
     },
     {
       "id": 6,
       "name": "Trevor Low",
-      "have": true,
+      "have": false,
       "chosen": ""
     }
   ]

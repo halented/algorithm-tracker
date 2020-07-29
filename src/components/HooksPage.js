@@ -5,6 +5,7 @@ function HooksPage() {
     const [students, studentChanger] = useState([])
     const [aGroup, aChanger] = useState(null)
     const [bGroup, bChanger] = useState(null)
+    const audio = new Audio("https://www.wavsource.com/snds_2020-06-10_7014036401687385/sfx/bloop_x.wav")
 
     useEffect(runSetup, [])
 
@@ -109,31 +110,32 @@ function HooksPage() {
             })
     }
 
-    const reset = async () => {
+    const reset = () => {
         // potentially patch them slowly in the background
         let alteredStudents = students.map(x => {
             x.have = false
             return x
         })
-        console.log("first")
-        await gato(alteredStudents)
-        .then(data=>{
-            console.log(data)
-        })
-        // studentChanger(alteredStudents)
+        for (let i = 0; i < alteredStudents.length; i++) {
+            setTimeout(function () {
+                services.postData(alteredStudents[i])
+                audio.play()
+            },
+                (i*100)+1000);
+        }
     }
 
     async function gato(arr) {
         let req = null;
         let updatedList = [];
-        for(let i=0;i<arr.length;i++){
+        for (let i = 0; i < arr.length; i++) {
             // console.log(i)
             // if(i-2 === arr.length){
             //     console.log("last one")
             //     return services.postData(arr[i])
             // }
             req = (services.postData(arr[i]))
-            await req.then(res=> console.log(i, res))
+            await req.then(res => console.log(i, res))
         }
     }
 
