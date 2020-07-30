@@ -33,7 +33,7 @@
     {
       "id": 15,
       "name": "Don Mallory",
-      "have": false,
+      "have": true,
       "chosen": ""
     },
     {
@@ -69,7 +69,7 @@
     {
       "id": 9,
       "name": "Justin Langlinais",
-      "have": false,
+      "have": true,
       "chosen": ""
     },
     {
@@ -93,7 +93,7 @@
     {
       "id": 11,
       "name": "Mathew Wheatley",
-      "have": false,
+      "have": true,
       "chosen": ""
     },
     {
@@ -111,7 +111,7 @@
     {
       "id": 13,
       "name": "Steven Parsons",
-      "have": false,
+      "have": true,
       "chosen": ""
     },
     {

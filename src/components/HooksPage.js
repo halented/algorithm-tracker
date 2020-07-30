@@ -46,7 +46,7 @@ function HooksPage() {
         while (a === b) {
             b = picker()
         }
-        // then, split the remaining students intwo two groups (ignoring the two who were selected) ▼
+        // then, split the remaining students into two groups (ignoring the two who were selected) ▼
         let one = [a]
         let two = [b]
         let half = Math.floor(students.length / 2)
@@ -129,11 +129,6 @@ function HooksPage() {
         let req = null;
         let updatedList = [];
         for (let i = 0; i < arr.length; i++) {
-            // console.log(i)
-            // if(i-2 === arr.length){
-            //     console.log("last one")
-            //     return services.postData(arr[i])
-            // }
             req = (services.postData(arr[i]))
             await req.then(res => console.log(i, res))
         }
@@ -160,7 +155,8 @@ function HooksPage() {
                             </ul>
                         </div>
                     </div>
-                    <button onClick={() => doubleSwap(aGroup[0], bGroup[0])} style={{ width: '38%', alignSelf: 'center' }}>All Done, Thanks</button>
+                    <button onClick={() => doubleSwap(aGroup[0], bGroup[0])} style={{ width: '38%', alignSelf: 'center' }}>Save and Go Back</button>
+                    <button onClick={() => aChanger(null)} style={{ marginTop: '2px',width: '38%', alignSelf: 'center' }}>Go Back Without Saving</button>
                 </>
                 :
                 <>
