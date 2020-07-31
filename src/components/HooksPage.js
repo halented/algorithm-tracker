@@ -125,14 +125,14 @@ function HooksPage() {
         }
     }
 
-    async function gato(arr) {
-        let req = null;
-        let updatedList = [];
-        for (let i = 0; i < arr.length; i++) {
-            req = (services.postData(arr[i]))
-            await req.then(res => console.log(i, res))
-        }
-    }
+    // we don't need this function but it was fun to fiddle with so i'm leaving it for posterity
+    // async function gato(arr) {
+    //     let req = null;
+    //     for (let i = 0; i < arr.length; i++) {
+    //         req = (services.postData(arr[i]))
+    //         await req.then(res => console.log(i, res))
+    //     }
+    // }
 
     return (
         <>

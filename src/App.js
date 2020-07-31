@@ -1,19 +1,24 @@
-import React from 'react';
-// import ClassPage from './components/ClassPage'
+import React, { useState } from 'react';
 import './App.css';
 import HooksPage from './components/HooksPage';
+import CohortSelectionPage from './components/CohortSelectionPage';
 
-class App extends React.Component {
-  
+function App() {
+  const [students, setStudents] = useState([])
+  const [showHome, setShowHome] = useState(false)
 
-  render() {
-    return (
-      <div className="App" style={{ display: 'flex', flexDirection: 'column' }}>
-        {/* <ClassPage /> */}
-        <HooksPage />
-      </div>
-    );
+  const makeSelection = (selection) => {
+
   }
+
+  return (
+    <div className="App" style={{ display: 'flex', flexDirection: 'column' }}>
+      Algo Tracker App
+        <CohortSelectionPage makeSelection={makeSelection}/>
+        {showHome && <HooksPage students={students}/>}
+      </div>
+  )
 }
 
 export default App;
+
