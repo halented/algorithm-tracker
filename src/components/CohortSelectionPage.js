@@ -3,7 +3,7 @@ import { services } from '../services';
 
 function CohortSelectionPage(props) {
     const [showForm, setShowForm] = useState(false)
-    const { setStudents, setShowHome } = props
+    const { setCohort, setShowHome } = props
     const [cohorts, setCohorts] = useState([])
     const [selection, setSelection] = useState("")
 
@@ -19,7 +19,7 @@ function CohortSelectionPage(props) {
         services.getStudentData(selection)
             .then(data => {
                 // save students to state && go back to the homepage
-                setStudents(data)
+                setCohort(data)
                 setShowHome(true)
             })
     }

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { services } from '../services'
 
+// WE ARE RECIEVING STUDENTS FROM THE APP LEVEL NOW, BUT EVERYTHING IS BROKEN BECAUSE STUDENTS IS ACTUALLY AN OBJECT CONTAINING COHORT INFO AND THEN A LIST OF STUDENTS
+
 function HooksPage(props) {
     // const [students, studentChanger] = useState([])
-    const {students} = props
+    const { students } = props
     const [aGroup, aChanger] = useState(null)
     const [bGroup, bChanger] = useState(null)
     const audio = new Audio("https://www.wavsource.com/snds_2020-06-10_7014036401687385/sfx/bloop_x.wav")
@@ -73,7 +75,7 @@ function HooksPage(props) {
     }
 
     const populateStudents = (val) => {
-        let correctSet = [...students].filter(student => student.have === val)
+        let correctSet = [...students].filter(student => student.have_gone === val)
 
         return correctSet.map(student => {
             return (
@@ -123,7 +125,7 @@ function HooksPage(props) {
                 services.postData(alteredStudents[i])
                 audio.play()
             },
-                (i*100)+1000);
+                (i * 100) + 1000);
         }
     }
 
@@ -138,7 +140,6 @@ function HooksPage(props) {
 
     return (
         <>
-        {console.log(students)}
             {aGroup ?
                 <>
                     <button style={{ width: '30%', alignSelf: 'center', marginTop: '2%' }} onClick={twoGroupGenerator}>Reshuffle</button>
@@ -159,7 +160,7 @@ function HooksPage(props) {
                         </div>
                     </div>
                     <button onClick={() => doubleSwap(aGroup[0], bGroup[0])} style={{ width: '38%', alignSelf: 'center' }}>Save and Go Back</button>
-                    <button onClick={() => aChanger(null)} style={{ marginTop: '2px',width: '38%', alignSelf: 'center' }}>Go Back Without Saving</button>
+                    <button onClick={() => aChanger(null)} style={{ marginTop: '2px', width: '38%', alignSelf: 'center' }}>Go Back Without Saving</button>
                 </>
                 :
                 <>

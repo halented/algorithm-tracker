@@ -4,16 +4,16 @@ import HooksPage from './components/HooksPage';
 import CohortSelectionPage from './components/CohortSelectionPage';
 
 function App() {
-  const [students, setStudents] = useState([])
+  const [cohort, setCohort] = useState([])
   const [showHome, setShowHome] = useState(false)
 
   return (
     <div className="App" style={{ display: 'flex', flexDirection: 'column' }}>
       Algo Tracker App
       {showHome ?
-        <HooksPage students={students} />
+        <HooksPage students={cohort.cohort.students} />
         :
-        <CohortSelectionPage setShowHome={setShowHome} setStudents={setStudents}/>
+        <CohortSelectionPage setShowHome={setShowHome} setCohort={setCohort}/>
       }
     </div>
   )
