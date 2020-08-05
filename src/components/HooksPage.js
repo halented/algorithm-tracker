@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { services } from '../services'
 
-function HooksPage() {
-    const [students, studentChanger] = useState([])
+function HooksPage(props) {
+    // const [students, studentChanger] = useState([])
+    const {students} = props
     const [aGroup, aChanger] = useState(null)
     const [bGroup, bChanger] = useState(null)
     const audio = new Audio("https://www.wavsource.com/snds_2020-06-10_7014036401687385/sfx/bloop_x.wav")
 
-    useEffect(runSetup, [])
+    // useEffect(runSetup, [])
+
 
     function runSetup() {
         services.fetchData()
             .then(json => {
-                studentChanger(json)
+                // studentChanger(json)
             })
     }
 
@@ -35,7 +37,7 @@ function HooksPage() {
                     student.chosen = 'highlight'
             }
         })
-        studentChanger(tempState)
+        // studentChanger(tempState)
     }
 
     function twoGroupGenerator() {
@@ -95,7 +97,7 @@ function HooksPage() {
 
         return services.postData(student)
             .then(data => {
-                studentChanger(replacement)
+                // studentChanger(replacement)
             })
     }
 
@@ -136,6 +138,7 @@ function HooksPage() {
 
     return (
         <>
+        {console.log(students)}
             {aGroup ?
                 <>
                     <button style={{ width: '30%', alignSelf: 'center', marginTop: '2%' }} onClick={twoGroupGenerator}>Reshuffle</button>

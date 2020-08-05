@@ -29,7 +29,13 @@ const promiseMakerForReset = (data) => {
 }
 
 const fetchCohorts = () => {
-    return fetch('http://localhost:3000/cohort_names', {
+    return fetch('http://localhost:3000/cohort-names', {
+        headers: headers()
+    })
+    .then(res=>res.json())
+}
+const getStudentData = (selection) => {
+    return fetch(`http://localhost:3000/cohorts/${selection}`, {
         headers: headers()
     })
     .then(res=>res.json())
@@ -39,7 +45,6 @@ export const services = {
     fetchData,
     postData,
     promiseMakerForReset,
-    fetchCohorts
+    fetchCohorts,
+    getStudentData
 }
-
-// currently the data is all messed up because of trying to work around json-server's particularities
