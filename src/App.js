@@ -9,9 +9,9 @@ function App() {
 
   return (
     <div className="App" style={{ display: 'flex', flexDirection: 'column' }}>
-      Algo Tracker App
+      <div>Algo Tracker App</div>
       {showHome ?
-        <HooksPage students={cohort.cohort.students} />
+        <HooksPage students={cohort.students} />
         :
         <CohortSelectionPage setShowHome={setShowHome} setCohort={setCohort}/>
       }

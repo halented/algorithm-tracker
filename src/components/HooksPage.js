@@ -1,24 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { services } from '../services'
 
-// WE ARE RECIEVING STUDENTS FROM THE APP LEVEL NOW, BUT EVERYTHING IS BROKEN BECAUSE STUDENTS IS ACTUALLY AN OBJECT CONTAINING COHORT INFO AND THEN A LIST OF STUDENTS
 
 function HooksPage(props) {
-    // const [students, studentChanger] = useState([])
     const { students } = props
     const [aGroup, aChanger] = useState(null)
     const [bGroup, bChanger] = useState(null)
     const audio = new Audio("https://www.wavsource.com/snds_2020-06-10_7014036401687385/sfx/bloop_x.wav")
 
-    // useEffect(runSetup, [])
-
-
-    function runSetup() {
-        services.fetchData()
-            .then(json => {
-                // studentChanger(json)
-            })
-    }
 
     function picker() {
         let studentsWhoHaventGone = students.filter(student => student.have === false)
