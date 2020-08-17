@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { services } from '../services';
-import { Button } from 'antd'
+import { Button, message } from 'antd'
 
 function CohortSelectionPage(props) {
     const [showForm, setShowForm] = useState(true)
@@ -28,6 +28,10 @@ function CohortSelectionPage(props) {
     const handleSubmitNewCohort = () => {
 
     }
+    const tester = () => {
+        setShowForm(true)
+        message.success("You did it 🎉")
+    }
 
     return (
         <div>
@@ -47,7 +51,7 @@ function CohortSelectionPage(props) {
                             <input placeholder='012819'></input>
                             <label><span style={{ color: 'red' }}>*</span>List of Students (separated by commas)</label>
                             <input placeholder="Beyonce, Liv Tyler, Lupita Nyong'o"></input>
-                            <Button type='submit'>Save</Button>
+                            <Button type='submit' style={{width: '50%', alignSelf: 'center'}}>Save</Button>
                         </form>
                         <Button onClick={() => setShowForm(false)}>Wait! Go back</Button>
                         <p style={{ fontSize: 'x-small', fontStyle: 'italic' }}><span style={{ color: 'red' }}>* </span>= required.</p>
@@ -63,7 +67,7 @@ function CohortSelectionPage(props) {
                             <Button type='submit' onClick={(ev)=>handleSubmitSelection(ev)}>Submit</Button>
                         </form>
                         <span>Or..
-                        <Button onClick={() => setShowForm(true)}>
+                        <Button onClick={() => tester()}>
                                 Add a New Cohort
                         </Button>
                         </span>
