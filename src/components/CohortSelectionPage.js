@@ -25,12 +25,13 @@ function CohortSelectionPage(props) {
             })
     }
 
-    const handleSubmitNewCohort = () => {
+    const handleSubmitNewCohort = (ev) => {
 
+        message.info("clickerson")
     }
     const tester = () => {
         setShowForm(true)
-        message.success("You did it 🎉")
+        message.success("You clicked a button 🎉")
     }
 
     return (
@@ -44,14 +45,14 @@ function CohortSelectionPage(props) {
                         border: '3px solid black'
                         }}
                     >
-                        <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmitNewCohort}>
+                        <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={(ev)=>handleSubmitNewCohort(ev)}>
                             <label>Cohort Name (optional)</label>
                             <input placeholder='Dixon Ticonderogas'></input>
                             <label><span style={{ color: 'red' }}>*</span>Start Date (MMDDYY)</label>
                             <input placeholder='012819'></input>
                             <label><span style={{ color: 'red' }}>*</span>List of Students (separated by commas)</label>
                             <input placeholder="Beyonce, Liv Tyler, Lupita Nyong'o"></input>
-                            <Button type='submit' style={{width: '50%', alignSelf: 'center'}}>Save</Button>
+                            <Button type='primary' style={{width: '50%', alignSelf: 'center'}} onClick={(ev)=>handleSubmitNewCohort(ev)}>Save</Button>
                         </form>
                         <Button onClick={() => setShowForm(false)}>Wait! Go back</Button>
                         <p style={{ fontSize: 'x-small', fontStyle: 'italic' }}><span style={{ color: 'red' }}>* </span>= required.</p>
